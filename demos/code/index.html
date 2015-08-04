@@ -11,6 +11,7 @@
   <script src="../../javascript_compressed.js"></script>
   <script src="../../python_compressed.js"></script>
   <script src="../../php_compressed.js"></script>
+  <script src="../../fuzebasic_compressed.js"></script>
   <script src="../../dart_compressed.js"></script>
   <script src="code.js"></script>
 </head>
@@ -36,6 +37,8 @@
             <td id="tab_javascript" class="taboff">JavaScript</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_python" class="taboff">Python</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_fuzebasic" class="taboff">FUZE BASIC</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_php" class="taboff">PHP</td>
             <td class="tabmin">&nbsp;</td>
@@ -64,10 +67,67 @@
   </table>
   <div id="content_blocks" class="content"></div>
   <pre id="content_javascript" class="content"></pre>
+  <pre id="content_fuzebasic" class="content"></pre>
   <pre id="content_php" class="content"></pre>
   <pre id="content_python" class="content"></pre>
   <pre id="content_dart" class="content"></pre>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
+<xml id="startBlocks" style="display: none">
+  <block type="variables_set" id="195" x="88" y="13">
+    <field name="VAR">item</field>
+    <value name="VALUE">
+      <block type="text" id="196">
+        <field name="TEXT">ARSE</field>
+      </block>
+    </value>
+  </block>
+  <block type="variables_set" id="197" x="63" y="87">
+    <field name="VAR">count</field>
+    <value name="VALUE">
+      <block type="math_number" id="198">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="controls_whileUntil" id="199" x="112" y="162">
+    <field name="MODE">WHILE</field>
+    <value name="BOOL">
+      <block type="logic_compare" id="200">
+        <field name="OP">LT</field>
+        <value name="A">
+          <block type="variables_get" id="201">
+            <field name="VAR">count</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="202">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="variables_set" id="203">
+        <field name="VAR">count</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="204">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <block type="variables_get" id="205">
+                <field name="VAR">count</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="206">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
 
   <xml id="toolbox" style="display: none">
     <category id="catLogic">
