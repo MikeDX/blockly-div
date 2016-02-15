@@ -52,6 +52,7 @@ Blockly.divgames['controls_repeat_ext'] = function(block) {
   var code = '';
   var loopVar = Blockly.divgames.variableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
+  
   var endVar = repeats;
   if (!repeats.match(/^\w+$/) && !Blockly.isNumber(repeats)) {
     var endVar = Blockly.divgames.variableDB_.getDistinctName(
@@ -76,7 +77,7 @@ Blockly.divgames['controls_whileUntil'] = function(block) {
   if (until) {
     argument0 = '!' + argument0;
   }
-  return 'while (' + argument0 + ') \n' + branch + '\nEND\n\n';
+  return 'WHILE (' + argument0 + ') \n' + branch + '\nEND\n\n';
 };
 
 Blockly.divgames['controls_for'] = function(block) {
@@ -96,16 +97,15 @@ Blockly.divgames['controls_for'] = function(block) {
       Blockly.isNumber(increment)) {
     // All arguments are simple numbers.
     var up = parseFloat(argument0) <= parseFloat(argument1);
-    code = 'for (' + variable0 + ' = ' + argument0 + '; ' +
-        variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' +
-        variable0;
+    code = 'FROM ' + variable0 + ' = ' + argument0 + ' TO ' + argument1 + ' ';
+    
     var step = Math.abs(parseFloat(increment));
-    if (step == 1) {
-      code += up ? '++' : '--';
-    } else {
-      code += (up ? ' += ' : ' -= ') + step;
-    }
-    code += ') {\n' + branch + '}\n';
+
+	code += ' STEP ';
+	
+    code += up ? '' : '-' + step;
+    
+    code += ';\n' + branch + '\nEND\n\n';
   } else {
     code = '';
     // Cache non-trivial values to variables to prevent repeated look-ups.

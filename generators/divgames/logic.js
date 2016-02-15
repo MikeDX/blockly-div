@@ -35,18 +35,18 @@ Blockly.divgames['controls_if'] = function(block) {
   var argument = Blockly.divgames.valueToCode(block, 'IF' + n,
       Blockly.divgames.ORDER_NONE) || 'false';
   var branch = Blockly.divgames.statementToCode(block, 'DO' + n);
-  var code = 'if (' + argument + ') {\n' + branch + '}';
+  var code = '\nIF (' + argument + ') \n' + branch + '\n';
   for (n = 1; n <= block.elseifCount_; n++) {
     argument = Blockly.divgames.valueToCode(block, 'IF' + n,
         Blockly.divgames.ORDER_NONE) || 'false';
     branch = Blockly.divgames.statementToCode(block, 'DO' + n);
-    code += ' else if (' + argument + ') {\n' + branch + '}';
+    code += 'ELSE IF (' + argument + ') \n' + branch + '\nEND\n\n';
   }
   if (block.elseCount_) {
     branch = Blockly.divgames.statementToCode(block, 'ELSE');
-    code += ' else {\n' + branch + '}';
+    code += 'ELSE \n' + branch + '';
   }
-  return code + '\n';
+  return code + '\nEND\n\n';
 };
 
 Blockly.divgames['logic_compare'] = function(block) {

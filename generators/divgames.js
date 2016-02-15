@@ -131,7 +131,7 @@ Blockly.divgames.finish = function(code) {
   
 
   return "PROGRAM myprogram;\n\nGLOBAL\n" + vars  + 
-  '\n\n\n'+"BEGIN\n" + code + "END\n" + definitions.join('\n\n');
+  '\n\n\n'+"BEGIN\n" + code + "\nEND // end main program loop\n" + definitions.join('\n\n');
   
   
 };

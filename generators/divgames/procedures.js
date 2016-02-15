@@ -67,8 +67,8 @@ Blockly.divgames['procedures_defreturn'] = function(block) {
     args[x] = Blockly.divgames.variableDB_.getName(block.arguments_[x],
         Blockly.Variables.NAME_TYPE);
   }
-  var code = 'PROCESS ' + funcName + '(' + args.join(', ') + ') \n' +
-      branch + returnValue + 'END';
+  var code = 'PROCESS ' + funcName + '(' + args.join(', ') + ') \nBEGIN\n' +
+      branch + returnValue + '\nEND // end process loop\n';
   code = Blockly.divgames.scrub_(block, code);
   Blockly.divgames.definitions_[funcName] = code;
   return null;
