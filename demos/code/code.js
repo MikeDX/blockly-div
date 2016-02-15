@@ -243,7 +243,7 @@ Code.LANG = Code.getLang();
  * List of tab names.
  * @private
  */
-Code.TABS_ = ['blocks', 'javascript', 'fuzebasic', 'php', 'python', 'dart', 'xml'];
+Code.TABS_ = ['blocks', 'javascript', 'fuzebasic', 'divgames', 'php', 'python', 'dart', 'xml'];
 
 Code.selected = 'blocks';
 
@@ -324,6 +324,15 @@ Code.renderContent = function() {
       code = prettyPrintOne(code, 'py');
       content.innerHTML = code;
     }
+  } else if (content.id == 'content_divgames') {
+    code = Blockly.divgames.workspaceToCode(Code.workspace);
+    content.textContent = code;
+    if (typeof prettyPrintOne == 'function') {
+      code = content.innerHTML;
+      code = prettyPrintOne(code, 'divgames');
+      content.innerHTML = code;
+    }
+
   } else if (content.id == 'content_fuzebasic') {
     code = Blockly.fuzebasic.workspaceToCode(Code.workspace);
     content.textContent = code;
