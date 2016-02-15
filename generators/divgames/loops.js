@@ -58,10 +58,10 @@ Blockly.divgames['controls_repeat_ext'] = function(block) {
         'repeat_end', Blockly.Variables.NAME_TYPE);
     code += endVar + ' = ' + repeats + ';\n';
   }
-  code += 'FOR ' + loopVar + ' = 0 TO ' +
-      endVar + ' CYCLE\n ' +
+  code += 'FROM ' + loopVar + ' = 0 TO ' +
+      endVar + '\n ' +
       branch + '\n' +
-      'REPEAT\n';
+      'END\n\n';
   return code;
 };
 
@@ -76,7 +76,7 @@ Blockly.divgames['controls_whileUntil'] = function(block) {
   if (until) {
     argument0 = '!' + argument0;
   }
-  return 'while (' + argument0 + ') {\n' + branch + '}\n';
+  return 'while (' + argument0 + ') \n' + branch + '\nEND\n\n';
 };
 
 Blockly.divgames['controls_for'] = function(block) {

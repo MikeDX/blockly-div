@@ -43,7 +43,7 @@ Blockly.divgames['procedures_defreturn'] = function(block) {
           globals.splice(i, 1);
       }
   }
-  globals = globals.length ? '  global ' + globals.join(', ') + ';\n' : '';
+//  globals = globals.length ? '  global ' + globals.join(', ') + ';\n' : '';
 
   var funcName = Blockly.divgames.variableDB_.getName(
       block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
@@ -67,8 +67,8 @@ Blockly.divgames['procedures_defreturn'] = function(block) {
     args[x] = Blockly.divgames.variableDB_.getName(block.arguments_[x],
         Blockly.Variables.NAME_TYPE);
   }
-  var code = 'DEF FN ' + funcName + '(' + args.join(', ') + ') \n' +
-      globals + branch + returnValue + '';
+  var code = 'PROCESS ' + funcName + '(' + args.join(', ') + ') \n' +
+      branch + returnValue + 'END';
   code = Blockly.divgames.scrub_(block, code);
   Blockly.divgames.definitions_[funcName] = code;
   return null;
@@ -88,7 +88,7 @@ Blockly.divgames['procedures_callreturn'] = function(block) {
     args[x] = Blockly.divgames.valueToCode(block, 'ARG' + x,
         Blockly.divgames.ORDER_COMMA) || 'null';
   }
-  var code = 'FN ' + funcName + '(' + args.join(', ') + ')';
+  var code = '// spawn ' +funcname + 'process\n' + funcName + '(' + args.join(', ') + ')';
   return [code, Blockly.divgames.ORDER_FUNCTION_CALL];
 };
 

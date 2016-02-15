@@ -107,7 +107,7 @@ Blockly.divgames.init = function(workspace) {
     defvars[i] =  Blockly.divgames.variableDB_.getName(variables[i],
         Blockly.Variables.NAME_TYPE) + ';';
   }
-  Blockly.divgames.definitions_['variables'] = defvars.join('GAY\n');
+  Blockly.divgames.definitions_['variables'] = defvars.join('\n');
 };
 
 /**
@@ -131,7 +131,7 @@ Blockly.divgames.finish = function(code) {
   
 
   return "PROGRAM myprogram;\n\nGLOBAL\n" + vars  + 
-  '\n\n\n'+"BEGIN\n" + code + "END\n//" + definitions.join('\n\n');
+  '\n\n\n'+"BEGIN\n" + code + "END\n" + definitions.join('\n\n');
   
   
 };
